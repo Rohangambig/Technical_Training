@@ -1,0 +1,54 @@
+1.def LuckySum(a,b,c):
+    if a == 13:
+        return 0
+    elif b == 13:
+        return a
+    elif c == 13:
+        return a+b
+    else:
+        return a+b+c
+
+print(LuckySum(1,2,3))
+print(LuckySum(1,2,13))
+print(LuckySum(1,13,3))
+
+
+2.def NoTeensum(a,b,c):
+    list = [13,14,17,18,19]
+    if a in list:return a+b
+    elif b in list:return a+c
+    elif c in list:return a+b
+    elif a in list and b in list:return c
+    elif a in list and c in list:return b
+    elif b in list and c in list:return a
+    elif a in list and b in list and c in list:return 0
+    else:
+        return a+b+c
+    
+print(NoTeensum(1, 2, 3))
+print(NoTeensum(2,13,1))
+print(NoTeensum(2,1,14))
+
+
+3.def greenTicket(a,b,c):
+    if a != b != c:
+        return 0
+    elif a == b == c:
+        return 20
+    elif a == b or a== c or b == c:
+        return 10
+print(greenTicket(1,2,3))
+print(greenTicket(2,2,2))
+print(greenTicket(1,1,3))
+Assignment 2.txt
+Displaying Assignment 2.txt.
+Assignment -02
+DLithe tech
+•
+Jan 11
+15 points
+Due Jan 16, 11:59 AM
+
+Assignment - 02
+Google Docs
+Class comments
