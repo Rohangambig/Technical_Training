@@ -1,0 +1,154 @@
+Python :
+
+1.# Given two non-negative int values, return true if they have the same last digit,
+# such as with 27 and 57. Note that the % "mod" operator computes remainders, so 17 % 10 is 7.
+
+
+def GetRemainder(a,b):
+    if a % 10 == b % 10 :
+        return True
+    else:
+        return False
+    
+print(GetRemainder(7,17))
+print(GetRemainder(6,17))
+print(GetRemainder(3,113))
+
+2. # Given one integer n and return true if it is an even number else return false.
+
+def Even(n):
+    if n %2 == 0:
+        return True
+    else:
+        return False
+print(Even(6))
+print(Even(7))
+print(Even(9))
+
+
+3.# Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+
+def SumDouble(a,b):
+    if a == b:
+        return 2 *(a+b)
+    else:
+        return a+b
+
+print(SumDouble(1,2))
+print(SumDouble(3,2))
+print(SumDouble(2,2))
+
+
+4.# Given 2 ints, a and b, return true if one of them is 10 or if their sum is 10.
+
+def Makes10(a,b):
+    if a== 10 or b == 10 or a+b == 10:
+        return True
+    else:
+        return False
+
+print(Makes10(9,10))
+print(Makes10(9,9))
+print(Makes10(9,1))
+
+
+
+5.# Given 2 int values, return true if either of them is in the range 10..20 inclusive.
+
+def In1020(a,b):
+    list = [10,11,12,13,14,15,16,17,18,19,20]
+    if a in list or b in list:
+        return True
+    else:
+        return False
+
+print(In1020(12,99))
+print(In1020(21,12))
+print(In1020(8,99))
+
+
+
+
+
+Java :
+
+import java.util.Scanner;
+public class Program1
+{
+
+    
+
+    public static boolean Lastrem(int a,int b)
+    {
+        if (a%10 == b%10)
+            return true;
+        else
+            return false;
+    }
+
+     
+    public static boolean Even(int n)
+    {
+        if (n%2 == 0)
+            return true;
+        else
+            return false;
+    }
+    
+    public static int sumDouble(int a,int b)
+    {
+        if (a == b)
+            return 2 * (a +b);
+        else
+            return a+b;
+    }
+
+    public static boolean makes10(int a,int b)
+    {
+        if (a == 10 || b == 10 || a+b == 10)
+            return true;
+        else
+            return false;
+    }
+
+    public static boolean in1020(int a,int b)
+    {
+        if ( 10 <=  a  && a<= 20 || 10 <= b && b <= 20)
+            return true;
+        else
+            return false;
+    }
+
+    public static void main(String[] args)
+    {
+        // Question number 1
+        System.out.println("Question number 1 : ");
+        System.out.println(Lastrem(7,17));
+        System.out.println(Lastrem(6,17));
+        System.out.println(Lastrem(3,113)+"\n");
+
+        // Question number 2
+        System.out.println("Question number 2 : ");
+        System.out.println(Even(6));
+        System.out.println(Even(7));
+        System.out.println(Even(9)+"\n");
+
+        // Question number 3
+        System.out.println("Question number 3 : ");
+        System.out.println(sumDouble(1, 2));
+        System.out.println(sumDouble(3,2));
+        System.out.println(sumDouble(2, 2)+"\n");
+
+        // Question number 4
+        System.out.println("Question number 4 : ");
+        System.out.println(makes10(9, 10));
+        System.out.println(makes10(9, 9));
+        System.out.println(makes10(1, 9)+"\n");
+
+         // Question number 5
+        System.out.println("Question number 5 : ");
+        System.out.println(in1020(12, 99) );
+        System.out.println(in1020(21, 12));
+        System.out.println(in1020(8, 99)+"\n");
+    }
+}
