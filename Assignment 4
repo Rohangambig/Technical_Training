@@ -1,0 +1,132 @@
+1.Zero converter
+
+def pos(n):
+    for i in range(n-1,-1,-1):
+        print(i,end= " ")
+def neg(n):
+    i = n 
+    while i <= 0:
+        print(i,end=" ")
+        i+=1
+def ZeroConverter(n):
+    if n == 0:
+        print("Already Zero")
+    else:
+        pos(n) if n > 0 else neg(n)
+ZeroConverter(4)
+
+2. ATM
+
+import sys
+pin = "1234"
+user_balance = 0
+
+# Deposit function
+def Deposite():
+    global user_balance
+    money = int(input("Enter the amount of money you want to deposite in your account : "))
+    if money % 100 != 0:
+        print(f"You can't deposite {money}. It should be divisible by 100")
+    else:
+        user_balance += money
+        print(f"{money} rupees successfully credited into your account ")
+    print()
+    
+    
+# Withdraw Function
+def Withdraw():
+    global user_balance
+    money = int(input("Enter the amount of money you want to debit from your account : "))
+    if money > user_balance:
+        print("You don't have enough money for Withdraw")
+    else:
+        user_balance -= money
+        print(f"{money} debited from your account")
+    print()
+    
+    
+# Check the Balance
+def BalanceEnquiry():
+    global user_balance
+    print(f"Total Amount of money is {user_balance} Rupees ")
+    print()
+    
+    
+# Change the pin
+def PinChange():
+    global pin
+    pin1 = input("Enter your new password : ")
+    pin2 = input("Confirm your password : ")
+    if pin2 == pin1:
+        pin = pin1
+    else:
+        print("Try again...")
+    print()
+    
+    
+while True:
+    password = input("Enter your password : ")
+    if password == pin:
+        print('1.Deposite\n2.Withdraw\n3.Balance enquiry\n4.Pin change\n5.Exit')
+        ch1 = int(input("Enter your choice : "))
+        if ch1 == 1:
+            Deposite()
+        elif ch1 == 2:
+            Withdraw()
+        elif ch1 ==3:
+            BalanceEnquiry()
+        elif ch1 == 4:
+            PinChange()
+        else:
+            sys.exit()
+    else:
+        print("Invalid password...")
+        ch2 = input("Do you want to try again... ?[y/n] : ")
+        if ch2.upper() == 'Y':
+            pass
+        else:
+            break
+        
+
+3.Check Prime
+
+def Prime(n):
+    for i in range(2,n):
+        if n%i == 0:
+            return False
+    return True
+    
+def SumPrime(a,b):
+    if Prime(a) and Prime(b):
+        return Prime(a+b)
+    else:
+        return False
+    print()    
+print(SumPrime(2,3))
+print(SumPrime(7,11))
+print(SumPrime(3,7))
+print(SumPrime(8,11))
+
+4.String Times
+
+def stringTimes(s,n):
+    return s*n
+print(stringTimes("Hi", 2))
+print(stringTimes("Hi", 3))
+print(stringTimes("Hi", 1))
+
+5.
+
+def Sereis(a,b,n):
+    sum = 0
+    for i in range(n):
+        sum += a+((2**i)*b)
+        print(sum,end= " ")
+    print()
+
+q = int(input("Enter the number of queries : "))
+for i in range(q):
+    a = int(input("Enter the values of a : "))
+    b = int(input("Enter the values of b : "))
+    n = int(input("Enter the values of n : "))
+    Sereis(a,b,n)
