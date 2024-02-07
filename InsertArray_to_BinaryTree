@@ -1,0 +1,30 @@
+class Node:
+    def __init__(self,data=None):
+        self.data  = data
+        self.left = self.right = None
+    def InsertNode(self,list):
+        
+        def Helper(l,r):
+            mid = (l+r) // 2
+            if l > r:
+                return None
+            root = Node(list[mid])
+            root.left = Helper(l,mid-1)
+            root.right = Helper(mid+1,r)
+            return root
+        return Helper(0,len(list)-1)
+    def Display(self,root):
+        if root:
+            self.Display(root.left)
+            print(root.data,end= " ")
+            self.Display(root.right)
+    def MaxDepth(self,root):
+        if not root:
+            return 0
+        return 1+ max(self.MaxDepth(root.left),self.MaxDepth(root.right))
+        
+list = [-10,-3,0,5,9,15]
+L = Node()
+root = L.InsertNode(list)
+L.Display(root)
+print("\nMaximum depth of a tree is : ",L.MaxDepth(root))
