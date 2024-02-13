@@ -1,0 +1,77 @@
+# 1.Double the array
+def Ans(nums):
+    i = 0
+    j = len_array = len(nums)
+    while i != len_array:
+        nums.append(nums[i])
+        i+=1
+    return nums
+print(Ans([1,2,1]))
+print(Ans([1,3,2,1]))
+
+
+# 2. Removing the smallest elment
+def FindMinimum(nums):
+    small = nums[0]
+    for i in nums:
+        if small >  i:
+            small = i
+    return small
+    
+def SortArray(nums):
+    return nums[1:] + [nums[0]]
+def Remove(nums):
+    no_iter = 0
+    len_array = len(nums)
+    while len_array != 0 :
+    
+        if nums[0] == FindMinimum(nums):
+            nums.remove(nums[0])
+            len_array-=1
+        else:
+            nums = SortArray(nums)
+        no_iter += 1
+    return no_iter
+    
+print(Remove([3,4,-1]))
+print(Remove([1,2,4,3]))
+
+
+# problem3 .. construct m*n dimentional array
+def ConstructArray(nums,m,n):
+    list = []
+    if m * n == len(nums):
+        k = 0
+        for i in range(m):
+            new_list = []
+            for j in range(n):
+                if k == len(nums):
+                    break
+                else:
+                    new_list.append(nums[k])
+                    k+=1
+            list.append(new_list)
+    return list
+print(ConstructArray([1,2,3,4],2,2))
+print(ConstructArray([1,2,3],1,3))
+print(ConstructArray([1,2],1,1))
+
+
+# Problem4... Find the avg of two array 
+def Avg(nums):
+    sum = 0
+    for i in nums:
+        sum += i
+    return sum / len(nums)
+
+def FindAvg(nums):
+    Array1 = nums[0:len(nums)//2]
+    Array2 = nums[len(nums)//2:]
+
+    if Avg(Array1) == Avg(Array2):
+        return True
+    else:
+        return False
+
+print(FindAvg([1,2,3,4,5,6,7,8]))
+print(FindAvg([3,1]))
