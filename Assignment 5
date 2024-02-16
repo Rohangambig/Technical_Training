@@ -1,0 +1,219 @@
+Assignment 5:
+
+1.
+def CheckCondition(a,b,n):
+    sum = 5
+    for i in range(n):
+        sum = sum +  ((2**i)*b)
+        print(sum,end=" ")
+a = int(input("Enter the value of a : "))
+b = int(input("Enter the value of b : "))
+n = int(input("Enter the value of n : "))
+CheckCondition(a,b,n)
+
+output : 
+Enter the value of a : 5
+Enter the value of b : 3
+Enter the value of n : 5
+8 14 26 50 98 
+
+2.
+def Reverse(n):
+    rev = 0 
+    flag = False
+    if n < 0:
+        n = -n
+        flag = True
+    
+    while n > 0:
+        rev = rev * 10 + n % 10
+        n = n//10
+        
+    if flag == True:
+        rev = -rev
+    return rev
+    
+print(Reverse(123))
+print(Reverse(-123))
+print(Reverse(406))
+
+output :
+321
+-321
+604
+
+3.
+# Connvert the decimal into binary
+def Binary(n):
+    number = 0
+    for i in [128,64,32,16,8,4,2,1]:
+        if n >= i:
+            number = number * 10 + 1
+            n = n-i
+        else:
+            number  = number * 10 + 0
+    print(number)
+Binary(23)
+Binary(124)
+Binary(234)
+output : 
+10111
+1111100
+11101010
+
+5.
+# Given positive integer X. print the nearest prime number to the given X.
+def IsPrime(n):
+    for i in range(2,n//2):
+        if n % i == 0:
+            return False
+    return True
+
+def GetPrevPrime(n):
+    for i in range(n-1,0,-1):
+        if IsPrime(i):
+            return i
+    return 0 
+
+def GetNextPrime(n):
+    for i in range(n+1,9999):
+        if IsPrime(i):
+            return i
+    return 0 
+    
+def NearesPrime(n):
+    left_number = GetPrevPrime(n)
+    right_number = GetNextPrime(n)
+    
+    if n - left_number == right_number-n:
+        return [left_number,right_number]
+    elif n - left_number < right_number-n :
+        return left_number
+    else:
+        return right_number
+    
+print(NearesPrime(11))
+print(NearesPrime(25))
+print(NearesPrime(21))
+print(NearesPrime(6))
+
+output :
+13
+23
+[19, 23]
+[5, 7]
+
+
+6.
+def CheckPrime(n):
+    for i in range(2,n):
+        if n % i == 0:
+            return False
+    return True
+
+def PrimeDigitSum(n):
+    sum = 0
+    while n != 0:
+        rem = n % 10
+        n = n // 10
+        if CheckPrime(rem):
+            sum += rem
+    return CheckPrime(sum)
+
+print(PrimeDigitSum(1234))
+print(PrimeDigitSum(5677))
+print(PrimeDigitSum(987))
+print(PrimeDigitSum(3456) )
+
+output :
+False
+True
+True
+False
+
+
+
+7.
+# Given positive integer X. print the nearest prime number to the given X.
+def IsArmStrong(n):
+    m = n
+    sum = 0
+    target = 0
+    while m != 0 :
+        target += 1
+        m = m//10
+    m = n
+    while m != 0:
+        sum += (m%10) ** target
+        m = m //10
+    if sum == n:
+        return True
+    else:
+        return False
+    
+
+def GetPrevPrime(n):
+    for i in range(n-1,0,-1):
+        if IsArmStrong(i):
+            return i
+    return 0 
+
+def GetNextPrime(n):
+    for i in range(n+1,9999):
+        if IsArmStrong(i):
+            return i
+    return 0 
+    
+def NearesPrime(n):
+    left_number = GetPrevPrime(n)
+    right_number = GetNextPrime(n)
+    
+    if n - left_number == right_number-n:
+        return [left_number,right_number]
+    elif n - left_number < right_number-n :
+        return left_number
+    else:
+        return right_number
+    
+print(NearesPrime(11))
+print(NearesPrime(99))
+print(NearesPrime(450))
+print(NearesPrime(1600))
+
+output :
+9
+153
+407
+1634
+
+8.
+def IsPrime(n):
+    for i in range(2,n//2):
+        if n % i == 0:
+            return False
+    return True
+
+def FibPrime(n,m):
+    list = []
+    a = 0
+    b = 1
+    for i in range(m+1):
+        result = a +b
+        a = b
+        b = result
+        if a > n and a <= m:
+            if IsPrime(a):
+                list.append(a)
+    if not list:
+        return 0
+    else:
+        return list
+    
+print(FibPrime(2,25))
+print(FibPrime(1,100))
+print(FibPrime(25, 75))
+
+output :
+[3, 5, 13]
+[2, 3, 5, 13, 89]
+0
