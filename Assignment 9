@@ -1,0 +1,159 @@
+1.# Program1
+def FindMaxIndex(list):
+    max = list[0]
+    index = 0
+    for i in range(len(list)):
+        if max < list[i]:
+            max = list[i]
+            index = i
+    return max,index
+def FindLeader(list,new_list):
+    while list != []:
+        max,index = FindMaxIndex(list)
+        new_list.append(max)
+        list = list[index+1:]
+    return new_list
+print(FindLeader([16,17,2,3,4,5,2],[]))
+print(FindLeader([1,2,3,4,0],[]))
+
+2.
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+public class Main
+{
+    public static void Permutation(String string,int l,int r)
+    {
+        if(l == r)
+            System.out.println(string);
+        else
+        {
+            for(int i = l;i<= r;i++)
+            {
+                string = swap(string, l, i); 
+                Permutation(string, l + 1, r); 
+                string = swap(string, l, i); 
+            }
+        }
+    }
+    
+    public static   String swap(String a,int i,int j)
+    {
+        char[] chararray= a.toCharArray();
+        char temp = chararray[j];
+        chararray[j] = chararray[i];
+        chararray[i] = temp;
+        
+        return String.valueOf(chararray);
+    }
+    
+	public static void main(String[] args) {
+		String  string = "ABC";
+		Permutation(string,0,string.length()-1);
+	}
+}
+
+
+3.
+Python
+
+# Problem3
+# Find first non repeating character
+def NonRepeat(s):
+    for i in range(len(s)):
+        char = s[i]
+        for j in range(len(s)):
+            if i != j:
+                if char == s[j]:
+                    char  = '$'
+        if char == s[i]:
+            break
+    return char
+print(NonRepeat('hello'))
+print(NonRepeat('zxvczbtxyzvy'))
+
+
+Java : 
+
+
+
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.Scanner;
+public class Main
+{
+    public static char NonRepeat(String str)
+    {
+        char character;
+        for (int i = 0;i<str.length();i++)
+        {
+            character = str.charAt(i);
+            for(int j =0 ;j<str.length();j++)
+            {
+                if(i != j && character == str.charAt(j) )
+                {
+                    character = '$';
+                }
+            }
+            
+            if(character == str.charAt(i))
+                return character;
+        }
+        return '$';
+    }
+    
+	public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String str = "hello";
+        System.out.println(NonRepeat(str));
+        str = "zxvczbtxyzvy";
+        System.out.println(NonRepeat(str));
+	}
+}
+
+
+
+4.
+
+def min_swaps_to_sort(arr):
+    n = len(arr)
+    # Create an array of pairs (element, original index)
+    pairs = [(arr[i], i) for i in range(n)]
+    # Sort the array of pairs based on element values
+    pairs.sort()
+
+    visited = [False] * n
+    swaps = 0
+
+    for i in range(n):
+        # If element is already visited or at its correct position
+        if visited[i] or pairs[i][1] == i:
+            continue
+
+        cycle_size = 0
+        j = i
+
+        while not visited[j]:
+            visited[j] = True
+            j = pairs[j][1]
+            cycle_size += 1
+
+        if cycle_size > 0:
+            swaps += (cycle_size - 1)
+
+    return swaps
+
+# Example usage:
+arr = [4, 3, 2, 1]
+print("Minimum number of swaps required:", min_swaps_to_sort(arr))
