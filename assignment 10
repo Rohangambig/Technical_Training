@@ -1,0 +1,87 @@
+problem1
+
+1.
+
+Java : 
+
+import java.util.ArrayList;
+public class Main
+{
+    public static void RotateArray(int[] a,int n)
+    {
+        while(n!=0)
+        {
+            ArrayList<Integer> new_list = new ArrayList<>();
+            new_list.add(a[a.length-1]);
+            
+            for(int i = 0;i<a.length-1;i++)
+                new_list.add(a[i]);
+            
+            for(int i=0;i<a.length;i++)
+                a[i] = new_list.get(i);
+            n-=1;
+        }
+        
+        for(int i:a)
+            System.out.print(i+" ");
+        
+        System.out.println();
+        
+    }
+    
+	public static void main(String[] args) {
+	    int a[] = {1,2,3,4,5};
+		RotateArray(a,1);
+		int b[] = {1,2,3,4,5};
+		RotateArray(b,2);
+	}
+}
+
+
+
+Python :
+
+def RotateArray(list,n):
+    while n!= 0:
+        new_list = []
+        new_list.append(list[-1])
+        for i in list[:-1]:
+            new_list.append(i)
+        list = new_list
+        n-=1
+    return list
+print(RotateArray([1,2,3,4,5],1))
+print(RotateArray([1,2,3,4,5],2))
+
+
+
+2...
+
+def FindCommon(list1,list2,list3):
+    new_list = []
+    for i in range(len(list1)):
+        if list1[i] in list2:
+            new_list.append(list1[i])
+    for i in range(len(new_list)):
+        if new_list[i] not in list3:
+            new_list.remove(new_list[i])
+    return new_list
+print(FindCommon([1, 5, 10, 20, 40, 80],[6, 7, 20, 80, 100],[3, 4, 15, 20, 30, 70, 80, 120]))
+print(FindCommon([1, 5, 5],[3, 4, 5, 5, 10],[5, 5, 10, 20]))
+
+
+3...
+
+def FindTriplet(list,sum):
+    new_list = []
+    for i in range(len(list)):
+        total = 0
+        for j in range(len(list)):
+            for k in range(len(list)):
+                if(i!= j and j != k and i != k and list[i]+list[j]+list[k] == sum):
+                    new_list.append(list[i])
+                    new_list.append(list[j])
+                    new_list.append(list[k])
+                    return  new_list
+    return None
+print(FindTriplet([12, 3, 4, 1, 6, 9],24))
