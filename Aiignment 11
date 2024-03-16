@@ -1,0 +1,25 @@
+# Problem 3
+
+def MergeArray(a,b):
+    new_list = []
+    i = j = 0
+    while i < len(a) and j < len(b):
+        if a[i] < b[j] :
+            if a[i] not in new_list:
+                new_list.append(a[i])
+            i+=1
+        else:
+            if b[j]  not in new_list:
+                new_list.append(b[j])
+            j+=1
+    while i< len(a):
+        if a[i] not in new_list:
+            new_list.append(a[i])
+        i+=1
+    while j < len(b):
+        if b[j] not in new_list:
+            new_list.append(b[j])
+        j+=1
+
+    return new_list
+print(MergeArray([1,2,3,4,5],[3,4,5,6,7]))
